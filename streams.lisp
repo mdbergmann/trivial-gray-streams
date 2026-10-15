@@ -261,9 +261,9 @@
       (position (stream fundamental-stream))
     (setf (stream-file-position stream) position)))
 
-;; clamiga's GRAY sequence generics use the trivial-gray-streams signature
+;; amilisp's GRAY sequence generics use the trivial-gray-streams signature
 ;; (stream sequence start end &key), so the bridge is direct.
-#+clamiga
+#+amilisp
 (progn
   (defmethod gray:stream-read-sequence
       ((s fundamental-input-stream) seq start end &key)

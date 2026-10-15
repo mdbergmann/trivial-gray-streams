@@ -18,9 +18,9 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (require "dotcl-gray"))
 
-;; clamiga (CL-Amiga) ships its Gray stream protocol in the GRAY package
+;; amilisp (AmiLisp) ships its Gray stream protocol in the GRAY package
 ;; (lib/gray-streams.lisp); load it so the :import-from clause below resolves.
-#+clamiga
+#+amilisp
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (require "gray-streams"))
 
@@ -58,13 +58,13 @@
                #+sbcl :sb-gray
                #+allegro :excl
                #+cmu :ext
-               #+(or clisp ecl mkcl mocl clasp clamiga) :gray
+               #+(or clisp ecl mkcl mocl clasp amilisp) :gray
                #+openmcl :ccl
                #+lispworks :stream
                #+(or abcl genera) :gray-streams
                #+mezzano :mezzano.gray
                #+dotcl :dotcl-gray
-               #-(or sbcl allegro cmu clisp openmcl lispworks ecl clasp mkcl abcl mocl genera mezzano dotcl clamiga) ...
+               #-(or sbcl allegro cmu clisp openmcl lispworks ecl clasp mkcl abcl mocl genera mezzano dotcl amilisp) ...
                ,@gray-class-symbols
                ,@gray-function-symbols)
               (:export
